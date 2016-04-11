@@ -4,14 +4,12 @@
 }
 
 .container{
-	padding: 20px;
-}
-
-.container_in{
 	position: relative;
-	background-color: #eee;
+	margin: 20px;
 	padding: 20px;
+	background-color: #eee;
 	border: #999 1px solid;
+	min-height: 500px;	
 }
 
 .teamtag{
