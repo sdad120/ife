@@ -1,0 +1,59 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+.container{
+	position: relative;
+	background-color: #eee;
+	margin: 20px;
+	padding: 20px;
+	border: #999 1px solid;
+	overflow: auto;
+}
+
+.teamtag{
+	padding: 20px;
+	float: left;
+	width: 200px;
+	background-color: white;
+	border: #999 1px solid;
+}
+
+.teamtag img{
+	height: 80px;
+	width: 80px;
+}
+
+.teamtag span{
+	position: relative;
+	top: -60px;
+}
+
+.content{
+	position: relative;
+	background-color: white;
+	border: #999 1px solid;
+	margin-left: 220px;
+	margin-right: 140px;
+	padding: 20px;
+}
+
+.teammember{
+	padding: 0 20px 20px 20px;
+	float: right;
+	width: 120px;
+	background-color: white;
+	border: #999 1px solid;
+}
+
+.teammember ul{
+	list-style: none;
+}
+
+.teammember img{
+	height: 80px;
+	width: 80px;
+	margin-top: 20px;
+}
