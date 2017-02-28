@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+    background: lightgray;
+    font-family: "PingFang SC", Helvetica, "Helvetica Neue", 微软雅黑, Tahoma, Arial, sans-serif;
+}
+#nav ul{
+    float: right;
+    height: 80px;
+    margin: 0;
+    padding: 0;
+    padding-right: 20px;
+    line-height: 80px;
+}
+#nav li{
+    display: inline-block;
+}
+#nav li a{
+    color: white;
+}
+#nav h1{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+}
+#nav{
+    background: #393939;
+    height: 80px;
+    line-height: 80px;
+}
+
+.content{
+    margin: 20px;
+    background: white;
+    padding: 20px;
+    box-shadow: darkgray 3px 3px;
+}
+
+.second-title{
+    font-size: 18px;
+    font-weight: bold;
+    color: dimgray;
+}
+.author{
+    font-size: 12px;
+    color: gray;
+}
+.gallary li{
+    border: 1px solid lightgray;
+    padding: 15px;
+    margin: 20px;
+    width: 300px; /*内容宽度*/
+}
+table{
+    width: 100%; /*去掉padding的宽度100percent，也即内容宽度*/
+}
+table td{
+    border: 1px solid darkgray;
+    margin: 0;
+}
+table th{
+    background: #393939;
+    color: white;
+    font-weight: bold;
+    border: 1px solid darkgray;
+    margin: 0;
+}
+table .total{
+    background: lightgray;
+    font-weight: bold;
+}
+.register h2{
+    font-size: 18px;
+    border-left: 3px solid darkgray;
+    padding: 10px 0 10px 20px;
+}
+.register .input-all{
+    position: relative;
+    padding-left: 30%;
+}
+
+.register .input-group{
+    margin: 20px 0 0 20px;
+}
+.input-group textarea{
+    width: 100%;
+    min-height: 150px;
+}
+.input-group p{
+    font-size: 14px;
+    color: darkgray;
+}
+.register label{
+    position: absolute;
+    right: 71%;
+}
+#submit-button{
+    width: 100%;
+    margin-top: 10px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: #337ab7;
+    border: none;
+    border-radius: 5px 5px 5px;
+}

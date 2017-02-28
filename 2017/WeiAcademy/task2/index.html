@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task2</title>
+    <link href="index.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div id="nav">
+    <h1>网站一级标题</h1>
+    <ul>
+        <li><a href="#">导航链接一</a></li>
+        <li><a href="#">导航链接二</a></li>
+        <li><a href="#">导航链接三</a></li>
+        <li><a href="#">导航链接四</a></li>
+    </ul>
+</div>
+<div class="content">
+    <h2>文章一级标题</h2>
+    <h2 class="second-title">文章二级标题</h2>
+    <p class="author">文章作者 文章发表时间</p>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落
+        <br/>
+        换行了
+        <br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落
+        <a href="http://ife.baidu.com">这是一个链接到http://ife.baidu.com</a>
+    </p>
+    <img src="timg.jpg" height="300" width="300"/>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落
+        <br/>
+        换行了
+        <br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落
+        <a href="http://ife.baidu.com">这是一个链接到http://ife.baidu.com</a>
+    </p>
+</div>
+<div class="content">
+    <h2>图片</h2>
+    <ul style="list-style: none" class="gallary">
+        <li>
+            好看的图片
+            <br/>
+            <img src="timg.jpg" height="300" width="300"/>
+        </li>
+        <li>
+            <br/>
+            好看的图片
+            <br/>
+            <img src="timg.jpg" height="300" width="300"/>
+        </li>
+        <li>
+            <br/>
+            好看的图片
+            <br/>
+            <img src="timg.jpg" height="300" width="300"/>
+        </li>
+    </ul>
+</div>
+<div class="content">
+    <h2>最后一篇文章一级标题</h2>
+    <h2 class="second-title">文章二级标题</h2>
+    <p class="author">文章作者 文章发表时间</p>
+    <ol>
+        <li>排名1</li>
+        <li>排名2</li>
+        <li>排名3</li>
+    </ol>
+    <div>
+        下面是一个表格，给表格加了一个border=1好让你看出是一个表格
+        <table>
+            <tr>
+                <th>表头</th>
+                <th>表头</th>
+                <th>表头</th>
+            </tr>
+            <tr>
+                <td>表内容单元格</td>
+                <td>表内容单元格</td>
+                <td><a href="#">操作</a></td>
+            </tr>
+            <tr>
+                <td>表内容单元格</td>
+                <td>表内容单元格</td>
+                <td><a href="#">操作</a></td>
+            </tr>
+            <tr class="total">
+                <td>总计</td>
+                <td colspan="2">1000</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="content register">
+    <h2>这里以后是一个侧栏，这是侧栏的标题</h2>
+    <form method="post" action="#">
+        <div class="input-all">
+            <div class="input-group">
+                <label for="email">请输入邮箱地址:</label>
+                <input class="register-box" type="text" name="email" id="email" value="这是一个文本输入框"/>
+                <p>邮箱地址请按要求格式输入</p>
+            </div>
+            <div class="input-group">
+                <div>
+                    <label for="password">请输入密码:</label>
+                    <input type="password" name="password" id="password" value="这是一个文本输入框"/>
+                </div>
+                <div>
+                    <label for="repeat-pwd">请重复输入密码:</label>
+                    <input type="password" name="password" id="repeat-pwd" value="这是一个文本输入框"/>
+                </div>
+                <p>密码请为6-16位英文数字</p>
+            </div>
+            <div class="input-group">
+                <label>性别:</label>
+                <input type="radio" value="1" name="gender" checked="checked"/>
+                <span>男</span>
+                <input type="radio" value="2" name="gender"/>
+                <span>女</span>
+            </div>
+            <div class="input-group">
+                <label>城市:</label>
+                <select>
+                    <option value="1" selected="selected">北京</option>
+                    <option value="2">上海</option>
+                    <option value="3">深圳</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>爱好:</label>
+                <input type="checkbox" name="hobby" value="1"/>
+                <span>运动</span>
+                <input type="checkbox" name="hobby" value="2"/>
+                <span>艺术</span>
+                <input type="checkbox" name="hobby" value="3"/>
+                <span>科学</span>
+            </div>
+            <div class="input-group">
+                <label>个人描述:</label>
+                <textarea>这是一个多行输入框，输入您的个人描述</textarea>
+            </div>
+        </div>
+        <input type="submit" value="确认提交" id="submit-button"/>
+    </form>
+</div>
+<br/>
+版权所有@LY
+</body>
+</html>
