@@ -37,6 +37,10 @@ body{
     box-shadow: darkgray 3px 3px;
 }
 
+.left-content{
+    margin-right: 480px;
+}
+
 .second-title{
     font-size: 18px;
     font-weight: bold;
@@ -50,8 +54,14 @@ body{
     border: 1px solid lightgray;
     padding: 15px;
     margin: 20px;
-    width: 300px; /*内容宽度*/
+    display: inline-block;
 }
+
+.gallary img{
+    width: 200px;
+    height: 200px;
+}
+
 table{
     width: 100%; /*去掉padding的宽度100percent，也即内容宽度*/
     border-collapse: collapse;
@@ -71,6 +81,12 @@ table .total{
     background: lightgray;
     font-weight: bold;
 }
+
+.register{
+    float: right;
+    width: 400px;
+}
+
 .register h2{
     font-size: 18px;
     border-left: 3px solid darkgray;
@@ -106,4 +122,12 @@ table .total{
     background: #337ab7;
     border: none;
     border-radius: 5px 5px 5px;
+}
+
+.bottom-bar{
+    height: 60px;
+    background: black;
+    text-align: center;
+    line-height: 60px;
+    color: white;
 }

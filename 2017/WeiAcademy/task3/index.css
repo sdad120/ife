@@ -13,9 +13,7 @@
 }
 
 .teamtag{
-	position: absolute;
-	left: 20px;
-	top: 20px;
+	position: relative;
 	width: 200px;
 	background-color: white;
 	border: #999 1px solid;
@@ -37,6 +35,7 @@
 }
 
 .content{
+    position: relative;
 	margin-left: 220px;
 	margin-right: 140px;
 	background-color: white;
