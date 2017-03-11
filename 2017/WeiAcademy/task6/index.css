@@ -1,0 +1,373 @@
+* {
+    margin: 0;
+}
+
+.container {
+    width: 892px;
+    margin: auto;
+    padding: 0 44px 0 44px;
+}
+
+.nav {
+    border-bottom: 2px solid #938e8c;
+    font-size: 12px;
+    margin-bottom: 30px;
+    font-family: 黑体;
+}
+
+.nav span {
+    line-height: 100px;
+}
+
+.nav_title {
+    width: 110px;
+    height: 61px;
+    padding-left: 4px;
+    background: #d4545c;
+    color: white;
+}
+
+.nav_date {
+    float: right;
+    color: #d4545c;
+}
+
+.title {
+    position: relative;
+}
+
+.title_img {
+    display: inline-block;
+    position: relative;
+    width: 640px;
+    height: 301px;
+}
+
+.title_img > img {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+}
+
+.title_img_left {
+    width: 193px;
+    height: 299px;
+    background: rgb(75,104,79);
+    float: left;
+    opacity: 0.8;
+    z-index: 2;
+    position: relative;
+}
+
+.title_img_right {
+    width: 191px;
+    height: 299px;
+    background: rgb(228, 183, 182);
+    float: right;
+    opacity: 0.8;
+    z-index: 2;
+    position: relative;
+}
+
+.title_desc {
+    /*float: right; why 没有到最右边？？？*/
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 203px;
+    border-top: 2px solid #cc8091;
+    padding-top: 8px;
+}
+
+.title_desc_head {
+    font-size: 16px;
+    font-family: 微软雅黑;
+    line-height: 30px;
+    color: black;
+}
+
+.title_desc_head div{
+    border-bottom: 2px solid rgb(120, 119, 119);
+    display: inline;
+}
+
+.title_desc_head span {
+    font-size: 24px;
+}
+
+.title_desc_detail {
+    font-size: 12px;
+    color: rgb(174, 174, 174);
+    line-height: 10px;
+    font-family: 楷体;
+}
+
+.title_desc_number {
+    font-size: 116px;
+    color: #75b86b;
+    font-family: 微软雅黑;
+    /*font-style: oblique;*/
+}
+
+.title_desc_small_number {
+    padding-left: 22px;
+    margin-top: -18px;
+    font-family: 微软雅黑;
+    color: #cc8091;
+}
+
+.title_desc_small_number_left {
+    display:inline-block;
+    font-size: 55px;
+}
+
+.title_desc_small_number_right {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.title_desc_small_number_right_up {
+    font-size: 15px;
+    line-height: 8px;
+    font-weight: bold;
+}
+
+.title_desc_small_number_right_down {
+    font-size: 12px;
+    color: rgb(225, 224, 224);
+}
+
+.content_middle {
+    margin-top: 40px;
+}
+
+.content_para {
+    margin-left: 24px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.content_what {
+    margin: 0;
+}
+
+.content_para_content {
+    font-size: 12px;
+    color: #767777;
+    line-height: 21px;
+    font-family: 宋体;
+    margin-top: 9px;
+}
+
+.content_para_what {
+    width: 230px;
+}
+
+.content_para_when {
+    width: 200px;
+}
+
+.content_para_how {
+    width: 130px;
+}
+
+.content_title {
+    font-size: 16px;
+    text-decoration: underline;
+    font-family: 微软雅黑;
+    font-weight: bold;
+}
+
+.content_title_what {
+    color: #418c59;
+}
+
+.content_title_when {
+    color: #d2994f;
+}
+
+.content_title_how {
+    color: #cc7680;
+}
+
+.content_tail > div {
+    width: 415px;
+    display: inline-block;
+    margin: 60px 0 50px 0;
+    vertical-align: top;
+}
+
+.content_tail .content_tail_left {
+    margin-right: 18px;
+}
+
+.content_tail_left_title > span {
+    font-size: 72px;
+    color: #f5e327;
+    font-weight: bold;
+    font-family: 黑体;
+}
+
+.content_tail_left_title {
+    font-size: 42px;
+    color: #11456b;
+    font-weight: bold;
+    font-family: 黑体;
+    line-height: 42px;
+    border-bottom: 2px solid #11456b;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.content_tail_left_title .content_tail_left_subtitle {
+    font-size: 33px;
+    color: #11456b;
+    font-weight: bold;
+    font-family: 黑体;
+}
+
+.content_tail_left_content {
+    position: relative;
+    font-size: 12px;
+    color: #767777;
+    font-family: 宋体;
+    line-height: 20px;
+}
+
+.content_tail_left_content > span {
+    font-size: 70px;
+    line-height: 70px;
+    color: #f5e327;
+    font-family: 微软雅黑;
+    float :left;
+    padding-right: 8px;
+    padding-bottom: 8px;
+}
+
+.content_tail_left_content img {
+    float: right;
+    padding: 20px 0 20px 20px;
+}
+
+.content_tail_right_up {
+    width: 459px;
+    height: 257px;
+    position: relative;
+}
+
+.content_tail_right_up_title {
+    width: 459px;
+    height: 61px;
+    position: absolute;
+    bottom: 0;
+    background: black;
+    opacity: 0.5;
+}
+
+.content_tail_right_up_title_box {
+    /* 继续思考 咋居中? */
+    position: absolute;
+    top: 8px;
+    left: 40px;
+    height: 44px;
+    padding-left: 12px;
+    border-left: 3px solid #32916a;
+    font-size: 12px;
+    color: #32916a;
+    font-family: 微软雅黑;
+    font-style: oblique;
+    word-spacing: 140%;
+}
+
+.content_tail_right_up_title_box > span {
+    font-size: 26px;
+    color: white;
+    font-style: normal;
+}
+
+.content_tail_right_down {
+    width: 458px;
+    height: 288px;
+    background: rgb(238, 237, 214);
+    margin-top: 30px;
+    padding-top: 30px;
+}
+
+.content_tail_right_down_list {
+    font-size: 14px;
+    color: #5a5b5b;
+    font-family: 宋体;
+    line-height: 20px;
+}
+
+.content_tail_right_down_list li {
+    margin-bottom: 18px;
+}
+
+.content_tail_right_down_title {
+    background: rgb(212, 93, 92);
+    width: 240px;
+    height: 125px;
+    display: inline-block;
+    color: #ffffff;
+    margin-top: 13px;
+    padding: 35px 10px 0 10px;
+}
+
+.content_tail_right_down_title_big  {
+    font-size: 110px;
+    font-family: 微软雅黑;
+    border-right: 2px solid #ffffff;
+    float: left;
+    line-height: 90px;
+    padding-right: 5px;
+
+}
+
+.content_tail_right_down_title_medium {
+    font-size: 21px;
+    font-family: 黑体;
+    padding-left: 80px;
+}
+
+.content_tail_right_down_title_small {
+    font-size: 12px;
+    font-family: 黑体;
+    padding-left: 80px;
+}
+
+.content_tail_right_down_content {
+    display: inline-block;
+    width: 180px;
+    font-size: 14px;
+    color: #5a5b5b;
+    font-family: 黑体;
+    line-height: 16px;
+    margin-left: 10px;
+}
+
+.content_tail_left_mark {
+    color: #d4545c;
+    font-size: 72px;
+    float: left;
+    position: relative;
+    top: 15px;
+    left: 0;
+    margin-left: -40px;
+}
+
+.content_tail_right_mark {
+    color: #d4545c;
+    font-size: 72px;
+    float: right;
+    position: relative;
+    top: 28px;
+    left: 20px;
+}
+
+.tail {
+    width: 892px;
+    margin: auto;
+    border-top: 1px solid #938e8c;
+    height: 50px;
+}
