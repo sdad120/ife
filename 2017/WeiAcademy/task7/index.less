@@ -1,0 +1,505 @@
+@red: #e74f4d;
+/* PS里的ICON怎么抓？？？*/
+* {
+  margin: 0;
+}
+
+/* 这个min-width的问题还放着呢 */
+body {
+  width: 1275px;
+  margin: auto;
+}
+
+.navbar {
+  padding-top: 10px;
+  height: 47px;
+
+  &_icon {
+    display: inline-block;
+    position: relative;
+    left: 55px;
+    span {
+      font-size: 21px;
+      font-family: 黑体;
+      display: inline-block;
+      padding-top: 8px;
+    }
+  }
+
+  &_item li {
+    color: #787b83;
+    font-family: 微软雅黑;
+    font-size: 14px;
+    float: right;
+    display: inline-block;
+    padding: 8px 20px 0 20px;
+    height: 36px;
+  }
+
+  /* 注意优先级 */
+  &_item &_selected {
+    border-bottom: 3px solid @red;
+    color: @red;
+  }
+
+  & &_login {
+    padding-right: 60px;
+    color: @red;
+  }
+}
+
+.head {
+  &_img {
+    background-image: url("head.jpg");
+    height: 690px;
+  }
+
+  &_container {
+    position: relative;
+    left: 115px;
+    top: 285px;
+    font-family: 微软雅黑;
+  }
+
+  &_title {
+    font-size: 60px;
+    color: white;
+  }
+
+  &_description {
+    margin-top: 25px;
+    font-size: 21px;
+    color: #fffdfd;
+  }
+
+  &_button {
+    text-align: center;
+    margin-top: 60px;
+    background: @red;
+    width: 330px;
+    height: 65px;
+    line-height: 65px;
+    font-size: 30px;
+    color: white;
+  }
+}
+
+.feature {
+  &_list {
+    height: 250px;
+  }
+
+  &_item {
+    width: 25%;
+    float: left;
+    text-align: center;
+  }
+
+  &_icon {
+    height: 130px;
+  }
+
+  &_text {
+    height: 55px;
+    width: 150px;
+    padding: 0 83px 0 83px;
+    border-right: 2px solid #aaaaaa;
+    color: #aaaaaa;
+    font-size: 14px;
+    font-family: 黑体;
+  }
+}
+
+.medium {
+  &_title {
+    background: #ededec;
+    height: 360px;
+    text-align: center;
+  }
+
+  &_icon {
+    padding-top: 90px;
+    height: 95px;
+  }
+
+  &_text {
+    color: #a1a1a1;
+    font-size: 53px;
+    font-family: 黑体;
+    margin-top: 45px;
+  }
+}
+
+.search {
+  &_content {
+    height: 335px;
+    background-image: url("search_bakcground.jpg");
+    text-align: center;
+    position: relative;
+    font-family: 微软雅黑;
+    color: white;
+  }
+
+  &_mask {
+    background: #aa3533;
+    opacity: 0.2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &_title {
+    padding-top: 50px;
+    font-size: 21px;
+    z-index: 2;
+    position: relative;
+  }
+
+  &_description {
+    padding-top: 30px;
+    font-size: 12px;
+    padding-bottom: 55px;
+    z-index: 2;
+    position: relative;
+  }
+
+  &_box {
+    padding: 0 120px 0 120px;
+  }
+  /* 这个有点过于定制化了。。这里暂时也没实现*/
+  &_select {
+    height: 34px;
+    width: 235px;
+    margin-right: 25px;
+    z-index: 2;
+    position: relative;
+    color: #c1c3c3;
+    /*-webkit-appearance: none;*/
+  }
+
+  &_button {
+    vertical-align: bottom;
+    display: inline-block;
+    height: 34px;
+    width: 235px;
+    z-index: 2;
+    position: relative;
+    background: @red;
+    color: white;
+    font-size: 14px;
+    line-height: 34px;
+  }
+}
+
+.city {
+  &_content {
+    padding: 105px 150px 110px 150px;
+    background-color: #f8f7f7;
+    height: 395px;
+  }
+
+  &_item {
+    margin-right: 35px;
+    display: inline-block;
+  }
+
+  &_last_item {
+    margin: 0;
+  }
+
+  &_img {
+    text-align: center;
+    padding: 10px 5px 10px 5px;
+    height: 315px;
+    width: 200px;
+    background: white;
+    img {
+      width: 200px;
+      height: 315px;
+    }
+  }
+
+  &_text {
+    text-align: center;
+    font-family: 微软雅黑;
+    &_small {
+      color:  #aeaeae;
+      font-size: 12px;
+      padding: 5px 0 5px 0;
+    }
+    &_medium {
+      color: #636464;
+      font-size: 14px;
+      padding-top: 10px;
+    }
+    &_big {
+      color: black;
+      font-size: 20px;
+    }
+  }
+}
+
+.city_content_big {
+  height: 560px;
+  font-family: 微软雅黑;
+
+  &_left {
+    text-align: center;
+    padding: 130px 0 105px 0;
+    background-image: url("big_city.jpg");
+    width: 850px;
+    color: white;
+
+    &_head {
+      &_zh {
+        font-size: 50px;
+      }
+
+      &_en {
+        font-size: 158px;
+      }
+
+      &_at, &_date {
+        font-size: 22px;
+      }
+    }
+  }
+
+  &_right {
+    font-family: 黑体;
+    float: right;
+    width: 285px;
+    height: 395px;
+    padding: 165px 70px 0 70px;
+    text-align: center;
+
+    &_title {
+      font-size: 24px;
+    }
+
+    &_text {
+      font-size: 12px;
+      line-height: 30px;
+      color: #aaaaaa;
+      margin-top: 25px;
+    }
+
+    &_more {
+      border: 1px solid @red;
+      color: @red;
+      height: 35px;
+      line-height: 35px;
+      width: 105px;
+      font-size: 14px;
+      margin: auto;
+      margin-top: 50px;
+    }
+  }
+}
+
+.more_content {
+  height: 520px;
+  text-align: center;
+
+  &_col {
+    width: 425px;
+    height: 350px;
+    padding-top: 170px;
+    font-size: 21px;
+    font-family: 黑体;
+    float: left;
+  }
+
+  &_text {
+    line-height: 30px;
+  }
+
+  &_button {
+    width: 165px;
+    height: 40px;
+    line-height: 40px;
+    margin: auto;
+    margin-top: 55px;
+  }
+
+  &_one {
+    background: @red;
+    color: white;
+  }
+
+  &_one &_button {
+    border: 1px solid white;
+  }
+
+  &_two {
+    background: white;
+    color: @red;
+  }
+
+  &_two &_button {
+    border: 1px solid @red;
+  }
+
+  &_three {
+    background-image: url("more.jpg");
+  }
+}
+
+.register {
+  height: 635px;
+  width: 990px;
+  margin: auto;
+  padding-top: 165px;
+  text-align: center;
+
+  &_title {
+    font-size: 21px;
+    font-family: 黑体;
+  }
+
+  &_description {
+    margin: auto;
+    margin-top: 25px;
+    width: 425px;
+    color: #aaaaaa;
+    font-size: 12px;
+    font-family: 微软雅黑;
+    line-height: 18px;
+  }
+
+  &_container {
+    margin-top: 105px;
+  }
+
+  &_content {
+    float: left;
+    width: 275px;
+    text-align: left;
+  }
+
+  &_item {
+    margin-top: 32px;
+
+    &_title {
+      color: #74706f;
+      font-size: 14px;
+      font-family: 黑体;
+    }
+
+    &_text {
+      margin-top: 23px;
+      font-size: 12px;
+      line-height: 21px;
+      color: #b5b3b3;
+    }
+  }
+
+  &_box {
+    float: left;
+    width: 640px;
+    margin-left: 75px;
+    font-size: 12px;
+    text-align: left;
+    font-family: 宋体;
+    color: #837f80;
+    word-spacing: 13px;
+
+    &_half {
+      margin-top: 15px;
+      width: 280px;
+      height: 10px;
+      padding: 15px;
+      background: #ededef;
+      display:inline-block;
+    }
+
+    &_dream {
+      margin-top: 15px;
+      padding: 8px 15px;
+      width: 610px;
+      height: 115px;
+      background: #ededef;
+      display:inline-block;
+    }
+
+    &_button {
+      margin-top: 15px;
+      height: 40px;
+      line-height: 40px;
+      width: 640px;
+      background: #ededef;
+      text-align: center;
+      font-size: 14px;
+      font-family: 黑体;
+    }
+  }
+}
+
+.tailbar {
+  height: 270px;
+  background: #33363f;
+  padding-top: 90px;
+  color: white;
+  text-align: center;
+
+  &_title {
+    font-size: 21px;
+    font-family: 黑体;
+  }
+
+  &_description {
+    font-size: 12px;
+    font-family: 宋体;
+    margin: auto;
+    margin-top: 12px;
+    line-height: 18px;
+    width: 470px;
+  }
+
+  &_search {
+    margin: auto;
+    margin-top: 30px;
+    height: 36px;
+    line-height: 36px;
+    font-family: 微软雅黑;
+    word-spacing: -8px;
+
+    &_box {
+      height: 36px;
+      width: 430px;
+      font-size: 14px;
+      border: none;
+      padding: 0 0 0 10px;
+      color: #aaaaaa;
+    }
+
+    &_button {
+      display: inline-block;
+      font-size: 15px;
+      width: 80px;
+      background: #6f7178;
+    }
+  }
+}
+
+.infobar {
+  height: 30px;
+  background: #2f2f38;
+  color: white;
+  padding-top: 25px;
+  font-family: 宋体;
+  font-size: 12px;
+
+  &_icon {
+    position: relative;
+    float: left;
+    left: 100px;
+  }
+
+  &_button {
+    position: relative;
+    float: right;
+    right: 36px;
+  }
+}
