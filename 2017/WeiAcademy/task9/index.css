@@ -1,0 +1,498 @@
+* {
+  margin: 0;
+}
+/* 有什么统一使navbar中各项居中的方法吗？一项项设置一点也不智能 */
+.navbar {
+  height: 55px;
+  background: #2189bf;
+}
+.navbar_icon {
+  background: white;
+  height: 35px;
+  width: 35px;
+  float: left;
+  position: relative;
+  left: 50px;
+  top: 11px;
+}
+.navbar_list {
+  float: right;
+  position: relative;
+  top: 14px;
+  right: 70px;
+  /* 这里display inline-block 失败了???*/
+}
+.navbar_list div {
+  float: right;
+}
+.navbar_search {
+  width: 315px;
+  height: 28px;
+  border-radius: 14px;
+  background: white;
+}
+.navbar_login {
+  width: 85px;
+  height: 28px;
+  line-height: 28px;
+  color: white;
+  font-size: 12px;
+  font-family: "Adobe 黑体 Std R";
+  text-align: center;
+}
+.leftbar {
+  min-height: 1266px;
+  width: 260px;
+  background: #2a2e3d;
+  float: left;
+}
+.leftbar_user {
+  height: 135px;
+  margin-bottom: 25px;
+}
+.leftbar_user_icon {
+  padding: 20px 45px;
+  display: inline-block;
+}
+.leftbar_user_icon_img {
+  height: 55px;
+  width: 55px;
+  float: left;
+  background: #b9babd;
+  border-radius: 27.5px;
+}
+.leftbar_user_icon_name {
+  float: left;
+  line-height: 55px;
+  padding-left: 18px;
+  color: white;
+  font-size: 16px;
+  font-family: 黑体;
+}
+.leftbar_user_info {
+  padding: 0 55px 0 30px;
+}
+.leftbar_user_info div {
+  text-align: center;
+  width: 47%;
+  font-size: 16px;
+  font-family: 黑体;
+  display: inline-block;
+  color: #6e8095;
+}
+.leftbar_user_info div span {
+  font-size: 12px;
+  font-family: 宋体;
+}
+.leftbar ul {
+  padding: 0;
+}
+.leftbar li {
+  list-style: none;
+  display: block;
+}
+.leftbar span {
+  color: white;
+}
+.leftbar_first_class > li {
+  height: 46px;
+  line-height: 46px;
+  font-size: 12px;
+  padding-left: 70px;
+  font-family: 黑体;
+  color: #6e8095;
+}
+.leftbar_first_class .leftbar_second_class {
+  background: #383d4e;
+  height: auto;
+}
+.leftbar_first_class .leftbar_second_class > ul > li {
+  height: 33px;
+  line-height: 33px;
+  padding-left: 33px;
+}
+.leftbar_first_class .leftbar_second_class > ul > li:nth-of-type(1) {
+  margin-top: -10px;
+}
+.leftbar_first_class .leftbar_second_class .leftbar_third_class {
+  height: auto;
+}
+.leftbar_first_class .leftbar_second_class .leftbar_third_class > ul > li {
+  height: 27px;
+  line-height: 27px;
+  padding-left: 12px;
+}
+.container {
+  min-height: 1266px;
+  margin-left: 260px;
+  background-color: #eeedec;
+  text-align: center;
+}
+.container_dir {
+  background: white;
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+  font-family: 黑体;
+  color: #bdbdbd;
+  padding-left: 30px;
+  text-align: left;
+}
+.container_content {
+  padding-top: 20px;
+  width: 890px;
+  display: inline-block;
+}
+.container_content > div {
+  margin-bottom: 10px;
+}
+.search_box {
+  border: 1px solid #dddfe1;
+  background: white;
+  padding: 15px 124px 12px 0;
+  display: inline-block;
+}
+.search_box > div {
+  margin-left: 30px;
+  float: left;
+}
+.search_box_right_item {
+  margin-left: 12px;
+}
+.search_box_item {
+  margin-bottom: 5px;
+  float: left;
+}
+.search_box_item span {
+  font-size: 12px;
+  color: #aaaaaa;
+  margin-right: 12px;
+}
+.search_box_item select {
+  height: 25px;
+}
+#search_box_col,
+#search_box_costday,
+#search_box_people {
+  width: 70px;
+}
+#search_box_buy,
+#search_box_sell,
+#search_box_date,
+#search_box_count {
+  width: 120px;
+}
+#search_box_people_info {
+  width: 165px;
+}
+#search_box_other_info {
+  width: 305px;
+}
+#search_box_button {
+  width: 48px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  border-radius: 3px;
+  background: #388ac1;
+  color: white;
+  font-size: 12px;
+  font-family: 黑体;
+  position: relative;
+  top: 15px;
+}
+.select_box {
+  word-spacing: -5px;
+}
+.select_box > div {
+  border: 1px solid #dddfe1;
+  background: white;
+  display: inline-block;
+  height: 63px;
+  vertical-align: top;
+}
+.select_box_item {
+  width: 110px;
+  font-family: 微软雅黑;
+  /* 一有字的inline-block就往下掉?? */
+}
+.select_box_item :nth-child(1) {
+  word-spacing: normal;
+  margin-top: 10px;
+  font-size: 12px;
+}
+.select_box_item :nth-child(2) {
+  font-size: 21px;
+  color: #ec6500;
+}
+.select_box_item :nth-child(2) span {
+  color: #aeaeae;
+  font-size: 18px;
+}
+.select_box_left_icon,
+.select_box_right_icon {
+  width: 30px;
+}
+.select_box_history {
+  width: 128px;
+}
+.select_box_select_item {
+  border-top: inset 2px #4388c8;
+}
+.data_box {
+  word-spacing: 20px;
+}
+.data_box_title {
+  margin-top: 22px;
+  margin-bottom: 4px;
+  text-align: left;
+  font-size: 12px;
+  font-family: 微软雅黑;
+}
+.data_box_item {
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid #dddfe1;
+  background: white;
+  height: 70px;
+  width: 199px;
+  font-family: 黑体;
+  position: relative;
+}
+.data_box_item :nth-child(1) {
+  font-size: 12px;
+  position: absolute;
+  top: 19px;
+  left: 10px;
+}
+.data_box_item :nth-child(2) {
+  font-size: 10px;
+  color: #aaaaaa;
+  position: absolute;
+  top: 43px;
+  left: 10px;
+}
+.data_box_item :nth-child(3) {
+  width: 60px;
+  height: 44px;
+  position: absolute;
+  top: 13px;
+  right: 16px;
+}
+.data_box_item :nth-child(4) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 70px;
+}
+.data_box_item_green :nth-child(4) {
+  border-left: 3px solid #44b29e;
+}
+.data_box_item_green :nth-child(3) {
+  background: #44b29e;
+}
+.data_box_item_blue :nth-child(4) {
+  border-left: 3px solid #388ac1;
+}
+.data_box_item_blue :nth-child(3) {
+  background: #388ac1;
+}
+.data_box_item_red :nth-child(4) {
+  border-left: 3px solid #d04a36;
+}
+.data_box_item_red :nth-child(3) {
+  background: #d04a36;
+}
+.data_box_item_yellow :nth-child(4) {
+  border-left: 3px solid #e1cc46;
+}
+.data_box_item_yellow :nth-child(3) {
+  background: #e1cc46;
+}
+/* 百分比与border的战斗咋玩？？*/
+/* 突然发现border-box的作用！！？？*/
+/* 还是不会间隔的问题 */
+.col-2 {
+  width: 39.5%;
+}
+.col-3 {
+  width: 59.5%;
+}
+.col-row {
+  margin-right: 1%;
+}
+.statistic_box {
+  float: left;
+  box-sizing: border-box;
+  /* 那个指数咋玩.. */
+}
+.statistic_box_title {
+  height: 40px;
+  background: #f4f5f6;
+  line-height: 40px;
+  font-size: 12px;
+  text-align: left;
+  color: #aaaaaa;
+  font-family: 黑体;
+  padding-left: 20px;
+  border: 1px solid #dddfe1;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow: 1px 1px #cccccc;
+}
+.statistic_box_content {
+  height: 315px;
+  border: 1px solid #dddfe1;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 1px 1px #cccccc;
+  background: white;
+}
+.statistic_box_material {
+  padding: 12px 20px 0 20px;
+}
+.statistic_box_material_navbar {
+  padding: 0;
+  text-align: left;
+  /* 我怎么感觉看上去有瑕疵.. */
+}
+.statistic_box_material_navbar li {
+  text-align: center;
+  display: inline-block;
+  background: #ececef;
+  font-size: 12px;
+  font-family: 微软雅黑;
+  width: 82px;
+  height: 26px;
+  line-height: 26px;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+.statistic_box_material_navbar .statistic_box_material_navbar_choose {
+  background: white;
+  border: 1px solid #dddfe1;
+  border-bottom: none;
+  position: relative;
+  z-index: 2;
+  top: 1px;
+}
+.statistic_box_material_table {
+  border: 1px solid #dddfe1;
+  padding: 29px 50px 38px 35px;
+  position: relative;
+  z-index: 1;
+}
+.statistic_box_material_table table {
+  border-collapse: collapse;
+  border: 1px solid #dddfe1;
+  width: 100%;
+}
+.statistic_box_material_table table tr {
+  height: 30px;
+  font-size: 12px;
+  font-family: 宋体;
+}
+.statistic_box_material_table table tr:nth-of-type(1) td:nth-of-type(1) {
+  background: #f4f5f6;
+}
+.statistic_box_project {
+  padding: 17px 34px 0 34px;
+  text-align: left;
+}
+.statistic_box_project > div {
+  font-size: 12px;
+  font-family: 微软雅黑;
+  border-bottom: 1px solid #dddfe1;
+  padding: 0 0 7px 15px;
+}
+.statistic_box_project > div span {
+  color: #c3c2c2;
+}
+.statistic_box_project_price,
+.statistic_box_project_worker {
+  float: left;
+}
+.statistic_box_project_price {
+  width: 85px;
+  border-right: 1px solid #dddfe1;
+}
+.statistic_box_project_worker {
+  width: 165px;
+}
+.statistic_box_project_description {
+  height: 146px;
+}
+.statistic_box_project input[type="checkbox"] {
+  margin: 12px 0 0 3px;
+}
+.statistic_box_project label {
+  font-size: 12px;
+  font-family: 微软雅黑;
+  color: #c3c2c2;
+}
+.statistic_box_project input[type="button"] {
+  height: 25px;
+  width: 50px;
+  background: #388ac1;
+  border: none;
+  border-radius: 3px;
+  float: right;
+  position: relative;
+  top: 6px;
+  color: white;
+  font-size: 12px;
+  font-family: 黑体;
+}
+.statistic_box_calendar {
+  padding: 8px 20px 0 20px;
+}
+.statistic_box_calendar_select select {
+  border: 1px solid #cccccc;
+  height: 20px;
+}
+.statistic_box_calendar_select select:nth-of-type(2) {
+  width: 62px;
+}
+.statistic_box_calendar_table {
+  margin-top: 8px;
+}
+.statistic_box_calendar_table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.statistic_box_calendar_table table tr:nth-of-type(1) td {
+  border-bottom: 1px solid #cccccc;
+  border-top: 1px solid #a9cfec;
+  height: 30px;
+}
+.statistic_box_calendar_table td {
+  height: 41px;
+  width: 41px;
+  font-size: 12px;
+  font-family: 黑体;
+}
+.statistic_box_calendar_table td span {
+  color: red;
+}
+.statistic_box_calendar_event {
+  border: 1px solid #f4c21d;
+  height: 34px;
+  padding-top: 7px;
+}
+.statistic_box_car_table {
+  padding: 17px 40px 0 40px;
+}
+.statistic_box_car_table table {
+  border-collapse: collapse;
+  border: 1px solid #aaaaaa;
+  width: 100%;
+  font-size: 13px;
+  font-family: 黑体;
+}
+.statistic_box_car_table table td {
+  height: 23px;
+}
+.statistic_box_car_table table tr:nth-of-type(2) {
+  background: #eeeeee;
+}
+/*# sourceMappingURL=index.css.map */

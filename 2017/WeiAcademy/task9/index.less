@@ -1,0 +1,569 @@
+@navbar-color: #2189bf;
+@leftbar-color: #2a2e3d;
+
+* {
+  margin: 0;
+}
+
+/* 有什么统一使navbar中各项居中的方法吗？一项项设置一点也不智能 */
+.navbar {
+  height: 55px;
+  background: @navbar-color;
+
+  &_icon {
+    background: white;
+    height: 35px;
+    width: 35px;
+    float: left;
+    position: relative;
+    left: 50px;
+    top: 11px;
+  }
+
+  &_list {
+    float: right;
+    position: relative;
+    top: 14px;
+    right: 70px;
+
+    /* 这里display inline-block 失败了???*/
+    div {
+      float: right;
+    }
+  }
+
+  &_search {
+    width: 315px;
+    height: 28px;
+    border-radius: 14px;
+    background: white;
+  }
+
+  &_login {
+    width: 85px;
+    height: 28px;
+    line-height: 28px;
+    color: white;
+    font-size: 12px;
+    font-family: "Adobe 黑体 Std R";
+    text-align: center;
+  }
+}
+
+.leftbar {
+  min-height: 1266px;
+  width: 260px;
+  background: @leftbar-color;
+  float: left;
+
+  &_user {
+    height: 135px;
+    margin-bottom: 25px;
+
+    &_icon {
+      padding: 20px 45px;
+      display:  inline-block;
+
+      &_img {
+        height: 55px;
+        width: 55px;
+        float: left;
+        background: #b9babd;
+        border-radius: 27.5px;
+      }
+
+      &_name {
+        float: left;
+        line-height: 55px;
+        padding-left: 18px;
+        color: white;
+        font-size: 16px;
+        font-family: 黑体;
+      }
+    }
+
+    &_info {
+      padding: 0 55px 0 30px;
+
+      div {
+        text-align: center;
+        width: 47%; //好迷啊..48%竟然会到下一行???
+        font-size: 16px;
+        font-family: 黑体;
+        display: inline-block;
+        color: #6e8095;
+        span {
+          font-size: 12px;
+          font-family: 宋体;
+        }
+      }
+    }
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    display: block;
+  }
+
+  span {
+    color: white;
+  }
+
+  &_first_class > li{
+    height: 46px;
+    line-height: 46px;
+    font-size: 12px;
+    padding-left: 70px;
+    font-family: 黑体;
+    color: #6e8095;
+  }
+
+  &_first_class &_second_class {
+    background: #383d4e;
+    height: auto;
+    > ul > li {
+      height: 33px;
+      line-height: 33px;
+      padding-left: 33px;
+      &:nth-of-type(1) {
+        margin-top: -10px;
+      }
+    }
+  }
+
+  &_first_class &_second_class &_third_class {
+    height: auto;
+    > ul > li {
+      height: 27px;
+      line-height: 27px;
+      padding-left: 12px;
+    }
+  }
+}
+
+.container {
+  min-height: 1266px;
+  margin-left: 260px;
+  background-color: #eeedec;
+  text-align: center;
+
+  &_dir {
+    background: white;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    font-family: 黑体;
+    color: #bdbdbd;
+    padding-left: 30px;
+    text-align: left;
+  }
+
+  &_content {
+    padding-top: 20px;
+    width: 890px;
+    display: inline-block;
+    > div {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.box_border() {
+  border: 1px solid #dddfe1;
+}
+
+.search_box {
+  .box_border();
+  background: white;
+  padding: 15px 124px 12px 0;
+  display: inline-block;
+
+  > div {
+    margin-left: 30px;
+    float: left;
+  }
+
+  &_right_item {
+    margin-left: 12px;
+  }
+
+  &_item {
+    margin-bottom: 5px;
+    float: left;
+
+    span {
+        font-size: 12px;
+        color: #aaaaaa;
+        margin-right: 12px;
+      }
+    select {
+      height: 25px;
+    }
+  }
+}
+
+#search_box {
+  &_col, &_costday, &_people{
+    width: 70px;
+  }
+  &_buy, &_sell, &_date, &_count {
+    width: 120px;
+  }
+  &_people_info {
+    width: 165px;
+  }
+  &_other_info {
+    width: 305px;
+  }
+  &_button {
+    width: 48px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 3px;
+    background: #388ac1;
+    color: white;
+    font-size: 12px;
+    font-family: 黑体;
+    position: relative;
+    top: 15px;
+  }
+}
+
+.select_box {
+  word-spacing: -5px;
+  > div {
+    .box_border();
+    background: white;
+    display: inline-block;
+    height: 63px;
+    vertical-align: top;
+  }
+
+  &_item {
+    width: 110px;
+    font-family: 微软雅黑;
+    /* 一有字的inline-block就往下掉?? */
+    :nth-child(1) {
+      word-spacing: normal;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    :nth-child(2) {
+      font-size: 21px;
+      color: #ec6500;
+      span {
+        color: #aeaeae;
+        font-size: 18px;
+      }
+    }
+  }
+
+  &_left_icon, &_right_icon {
+    width: 30px;
+  }
+
+  &_history {
+    width: 128px;
+  }
+
+  &_select_item {
+    border-top: inset 2px #4388c8;
+  }
+}
+
+
+.data_box {
+  word-spacing: 20px;
+
+  &_title {
+    margin-top: 22px;
+    margin-bottom: 4px;
+    text-align: left;
+    font-size: 12px;
+    font-family: 微软雅黑;
+  }
+
+  &_item {
+    display :inline-block;
+    vertical-align: top;
+    .box_border();
+    background: white;
+    height: 70px;
+    width: 199px;
+    font-family: 黑体;
+    position: relative;
+
+    :nth-child(1) {
+      font-size: 12px;
+      position: absolute;
+      top: 19px;
+      left: 10px;
+    }
+
+    :nth-child(2) {
+      font-size: 10px;
+      color: #aaaaaa;
+      position: absolute;
+      top: 43px;
+      left: 10px;
+    }
+
+    :nth-child(3) {
+      width: 60px;
+      height: 44px;
+      position: absolute;
+      top: 13px;
+      right: 16px;
+    }
+
+    :nth-child(4) {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 70px;
+    }
+
+    .set_border(@color) {
+      :nth-child(4) {
+        border-left: 3px solid @color;
+      }
+      :nth-child(3) {
+        background: @color;
+      }
+    }
+
+    &_green {
+      .set_border(#44b29e);
+    }
+
+    &_blue {
+      .set_border(#388ac1);
+    }
+
+    &_red {
+      .set_border(#d04a36);
+    }
+
+    &_yellow {
+      .set_border(#e1cc46);
+    }
+
+  }
+}
+
+/* 百分比与border的战斗咋玩？？*/
+/* 突然发现border-box的作用！！？？*/
+/* 还是不会间隔的问题 */
+
+.col-2 {
+  width: 39.5%;
+}
+
+.col-3 {
+  width: 59.5%;
+}
+
+.col-row {
+  margin-right: 1%;
+}
+
+.statistic_box {
+  float: left;
+  box-sizing: border-box;
+
+  &_title {
+    height: 40px;
+    background: #f4f5f6;
+    line-height: 40px;
+    font-size: 12px;
+    text-align: left;
+    color: #aaaaaa;
+    font-family: 黑体;
+    padding-left: 20px;
+    .box_border();
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 1px 1px #cccccc;
+  }
+
+  &_content {
+    height: 315px;
+    .box_border();
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 1px 1px #cccccc;
+    background: white;
+  }
+
+  &_material {
+    padding: 12px 20px 0 20px;
+
+    &_navbar {
+      padding: 0;
+      text-align: left;
+
+      li {
+        text-align: center;
+        display: inline-block;
+        background: #ececef;
+        font-size: 12px;
+        font-family: 微软雅黑;
+        width: 82px;
+        height: 26px;
+        line-height: 26px;
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+      }
+
+      /* 我怎么感觉看上去有瑕疵.. */
+      & &_choose {
+        background: white;
+        .box_border();
+        border-bottom: none;
+        position: relative;
+        z-index: 2;
+        top: 1px;
+      }
+    }
+
+    &_table {
+      .box_border();
+      padding: 29px 50px 38px 35px;
+      position: relative;
+      z-index: 1;
+
+      table {
+        border-collapse: collapse;
+        .box_border();
+        width: 100%;
+        tr {
+          height: 30px;
+          font-size: 12px;
+          font-family: 宋体;
+        }
+        tr:nth-of-type(1) {
+          td:nth-of-type(1) {
+            background: #f4f5f6;
+          }
+        }
+      }
+    }
+  }
+
+  &_project {
+    padding: 17px 34px 0 34px;
+    text-align: left;
+    > div {
+      span {
+        color: #c3c2c2;
+      }
+      font-size: 12px;
+      font-family: 微软雅黑;
+      border-bottom: 1px solid #dddfe1;
+      padding: 0 0 7px 15px;
+    }
+
+    &_price, &_worker {
+      float: left;
+    }
+
+    &_price {
+      width: 85px;
+      border-right: 1px solid #dddfe1;
+    }
+
+    &_worker {
+      width: 165px;
+    }
+
+    &_description {
+      height: 146px;
+    }
+
+    input[type="checkbox"] {
+      margin: 12px 0 0 3px;
+    }
+
+    label {
+      font-size: 12px;
+      font-family: 微软雅黑;
+      color: #c3c2c2;
+    }
+
+    input[type="button"] {
+      height: 25px;
+      width: 50px;
+      background: #388ac1;
+      border: none;
+      border-radius: 3px;
+      float: right;
+      position: relative;
+      top: 6px;
+      color: white;
+      font-size: 12px;
+      font-family: 黑体;
+    }
+  }
+
+  &_calendar {
+    padding: 8px 20px 0 20px;
+    &_select {
+      select {
+        border: 1px solid #cccccc;
+        height: 20px;
+        &:nth-of-type(2) {
+          width: 62px;
+        }
+      }
+    }
+    &_table {
+      margin-top: 8px;
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        tr:nth-of-type(1) td{
+          border-bottom: 1px solid #cccccc;
+          border-top: 1px solid #a9cfec;
+          height: 30px;
+        }
+      }
+      td {
+        height: 41px;
+        width: 41px;
+        font-size: 12px;
+        font-family: 黑体;
+        span {
+          color: red;
+        }
+      }
+    }
+    &_event {
+      border: 1px solid #f4c21d;
+      height: 34px;
+      padding-top: 7px;
+    }
+  }
+
+  /* 那个指数咋玩.. */
+  &_car_table {
+    padding: 17px 40px 0 40px;
+    table {
+      border-collapse: collapse;
+      border: 1px solid #aaaaaa;
+      width: 100%;
+      font-size: 13px;
+      font-family: 黑体;
+      td {
+        height: 23px;
+      }
+      tr:nth-of-type(2) {
+        background: #eeeeee;
+      }
+    }
+  }
+}
