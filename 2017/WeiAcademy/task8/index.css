@@ -1,0 +1,67 @@
+/* 指导文章 */
+/* http://j4n.co/blog/Creating-your-own-css-grid-system */
+* {
+  margin: 0;
+}
+/* 'border-box' box-sizing model 到底有啥用? */
+.container {
+  padding: 10px;
+}
+/* 选择器都不会 宛若智障 */
+/* http://www.runoob.com/cssref/css-selectors.html */
+[class*="col-"] {
+  float: left;
+}
+[class*="col-"] div {
+  /* border会破坏百分比啊.. */
+  background-color: #eee;
+  height: 50px;
+  margin: 10px;
+}
+@media all and (min-width: 768px) {
+  /* 百分比以谁为准，这是个问题 */
+  .col-lg-1 {
+    width: 8.3%;
+    float: left;
+  }
+  .col-lg-2 {
+    width: 16.6%;
+    float: left;
+  }
+  .col-lg-3 {
+    width: 25%;
+    float: left;
+  }
+  .col-lg-4 {
+    width: 33.3%;
+    float: left;
+  }
+  .col-lg-6 {
+    width: 50%;
+    float: left;
+  }
+}
+@media all and (max-width: 768px) {
+  /* 百分比以谁为准，这是个问题 */
+  .col-md-2 {
+    width: 16.6%;
+    float: left;
+  }
+  .col-md-3 {
+    width: 25%;
+    float: left;
+  }
+  .col-md-6 {
+    width: 50%;
+    float: left;
+  }
+  .col-md-8 {
+    width: 66.6%;
+    float: left;
+  }
+  .col-md-12 {
+    width: 100%;
+    float: left;
+  }
+}
+/*# sourceMappingURL=index.css.map */

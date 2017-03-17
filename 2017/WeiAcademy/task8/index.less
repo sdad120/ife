@@ -1,0 +1,80 @@
+/* 指导文章 */
+/* http://j4n.co/blog/Creating-your-own-css-grid-system */
+* {
+  margin: 0;
+}
+
+/* 'border-box' box-sizing model 到底有啥用? */
+.container {
+  padding: 10px;
+}
+
+/* 选择器都不会 宛若智障 */
+/* http://www.runoob.com/cssref/css-selectors.html */
+[class*="col-"] {
+  float: left;
+  div {
+    /* border会破坏百分比啊.. */
+    //border: 1px solid #999;
+    background-color: #eee;
+    height: 50px;
+    margin: 10px;
+  }
+}
+@media all and (min-width: 768px) {
+  /* 百分比以谁为准，这是个问题 */
+  .col-lg(@num) {
+    //margin: 20px 0 0 20px;
+    width: @num;
+    float: left;
+  }
+
+  .col-lg-1 {
+    .col-lg(8.3%);
+  }
+
+  .col-lg-2 {
+    .col-lg(16.6%)
+  }
+
+  .col-lg-3 {
+    .col-lg(25%)
+  }
+
+  .col-lg-4 {
+    .col-lg(33.3%)
+  }
+
+  .col-lg-6 {
+    .col-lg(50%);
+  }
+}
+
+@media all and (max-width: 768px) {
+  /* 百分比以谁为准，这是个问题 */
+  .col-md(@num) {
+    //margin: 20px 0 0 20px;
+    width: @num;
+    float: left;
+  }
+
+  .col-md-2 {
+    .col-md(16.6%)
+  }
+
+  .col-md-3 {
+    .col-md(25%)
+  }
+
+  .col-md-6 {
+    .col-md(50%);
+  }
+
+  .col-md-8 {
+    .col-md(66.6%);
+  }
+
+  .col-md-12 {
+    .col-md(100%);
+  }
+}
