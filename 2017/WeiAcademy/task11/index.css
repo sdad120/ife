@@ -43,6 +43,7 @@ nav ul {
   display: flex;
   text-align: center;
   justify-content: space-between;
+  -webkit-justify-content: space-between;
 }
 nav ul li {
   height: 50px;
@@ -59,6 +60,7 @@ nav ul .selected_item {
 .tag_list {
   display: flex;
   justify-content: space-around;
+  -webkit-justify-content: space-around;
 }
 .tag_list li div:nth-of-type(1) {
   margin: 12px 0 12px 0;
@@ -74,6 +76,7 @@ nav ul .selected_item {
 .item_list {
   display: flex;
   justify-content: center;
+  -webkit-justify-content: center;
   text-align: center;
 }
 .item_list > div {
@@ -119,9 +122,11 @@ nav ul .selected_item {
   display: inline-flex;
   vertical-align: top;
   flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
   /* 迷？？？*/
   width: 73.3%;
   justify-content: flex-end;
+  -webkit-justify-content: flex-end;
 }
 .module_content_container div {
   font-size: 12px;
@@ -131,7 +136,9 @@ nav ul .selected_item {
   height: 45px;
   display: flex;
   align-items: center;
+  -webkit-align-items: center;
   justify-content: center;
+  -webkit-justify-content: center;
   background: rgba(211, 211, 211, 0.2);
 }
 article {

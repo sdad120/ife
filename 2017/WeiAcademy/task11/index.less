@@ -25,6 +25,11 @@ hr {
   border-top: 10px solid rgba(211, 211, 211, .2);
 }
 
+.set_justify_content(@val) {
+  justify-content: @val;
+  -webkit-justify-content: @val;
+}
+
 header {
   line-height: 50px;
   height: 50px;
@@ -46,7 +51,7 @@ nav {
     color: gray;
     display: flex;
     text-align: center;
-    justify-content: space-between;
+    .set_justify_content(space-between);
     li {
       height: 50px;
       line-height: 50px;
@@ -65,7 +70,7 @@ nav {
 
 .tag_list {
   display: flex;
-  justify-content: space-around;
+  .set_justify_content(space-around);
   li div {
     &:nth-of-type(1) {
       margin: 12px 0 12px 0;
@@ -83,7 +88,7 @@ nav {
 
 .item_list {
   display: flex;
-  justify-content: center;
+  .set_justify_content(center);
   text-align: center;
 
   > div {
@@ -133,9 +138,10 @@ nav {
       display: inline-flex;
       vertical-align: top;
       flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
       /* 迷？？？*/
       width: 73.3%;
-      justify-content: flex-end;
+      .set_justify_content(flex-end);
       div {
         font-size: 12px;
         width: 45%;
@@ -143,8 +149,9 @@ nav {
         margin-bottom: 2.5%;
         height: 45px;
         display:flex;
-        align-items:center;
-        justify-content: center;
+        align-items: center;
+        -webkit-align-items: center;
+        .set_justify_content(center);
         background: rgba(211, 211, 211, .2);
       }
     }
