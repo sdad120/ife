@@ -30,6 +30,16 @@ hr {
   -webkit-justify-content: @val;
 }
 
+.set_flex() {
+  display: flex;
+  display: -webkit-flex;
+}
+
+.set_inline_flex() {
+  display: inline-flex;
+  display: -webkit-inline-flex;
+}
+
 header {
   line-height: 50px;
   height: 50px;
@@ -49,7 +59,7 @@ nav {
   height: 50px;
   ul {
     color: gray;
-    display: flex;
+    .set_flex();
     text-align: center;
     .set_justify_content(space-between);
     li {
@@ -69,7 +79,7 @@ nav {
 }
 
 .tag_list {
-  display: flex;
+  .set_flex();
   .set_justify_content(space-around);
   li div {
     &:nth-of-type(1) {
@@ -87,7 +97,7 @@ nav {
 }
 
 .item_list {
-  display: flex;
+  .set_flex();
   .set_justify_content(center);
   text-align: center;
 
@@ -135,7 +145,7 @@ nav {
       height: 97px;
     }
     &_container {
-      display: inline-flex;
+      .set_inline_flex();
       vertical-align: top;
       flex-wrap: wrap;
       -webkit-flex-wrap: wrap;
@@ -148,7 +158,7 @@ nav {
         margin-left: 5%;
         margin-bottom: 2.5%;
         height: 45px;
-        display:flex;
+        .set_flex();
         align-items: center;
         -webkit-align-items: center;
         .set_justify_content(center);
@@ -174,9 +184,10 @@ article {
   .passage {
     &_content {
       width: 50%;
-      display: inline-flex;
+      .set_inline_flex();
       flex-direction: column;
-      justify-content: space-between;
+      -webkit-flex-direction: column;
+      .set_justify_content(space-between);
       height: 81px;
       vertical-align: top;
       margin-left: 8px;
@@ -200,8 +211,8 @@ article {
     margin-bottom: 12px;
   }
   .container {
-    display: flex;
-    justify-content: space-between;
+    .set_flex();
+    .set_justify_content(space-between);
   }
   img {
     width: 32%;
