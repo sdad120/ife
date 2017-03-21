@@ -22,6 +22,9 @@ hr {
   border: none;
   border-top: 10px solid rgba(211, 211, 211, 0.2);
 }
+/* border 透明 可以用rgba */
+/* height百分比与line-height https://segmentfault.com/q/1010000005741625 */
+/* flex 还是要webkit啊 https://segmentfault.com/q/1010000004134894 */
 header {
   line-height: 50px;
   height: 50px;
