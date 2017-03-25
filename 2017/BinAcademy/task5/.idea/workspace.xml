@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9122640d-3c0d-40ac-810f-f5c6b6c3e13e" name="Default" comment="" />
-    <ignored path="task4.iws" />
+    <list default="true" id="620e5d3e-3d53-416d-9653-f1b08bb413eb" name="Default" comment="" />
+    <ignored path="task5.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,15 +19,15 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
-    <favorites_list name="task4" />
+    <favorites_list name="task5" />
   </component>
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="29" column="37" selection-start-line="0" selection-start-column="0" selection-end-line="112" selection-end-column="7" />
+            <state relative-caret-position="500">
+              <caret line="151" column="17" selection-start-line="151" selection-start-column="17" selection-end-line="151" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -86,27 +86,27 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="task4" />
+              <option name="myItemId" value="task5" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="task4" />
+              <option name="myItemId" value="task5" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="task4" />
+              <option name="myItemId" value="task5" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -170,17 +170,17 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9122640d-3c0d-40ac-810f-f5c6b6c3e13e" name="Default" comment="" />
-      <created>1490417895394</created>
+      <changelist id="620e5d3e-3d53-416d-9653-f1b08bb413eb" name="Default" comment="" />
+      <created>1490421115535</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1490417895394</updated>
-      <workItem from="1490417896584" duration="3203000" />
+      <updated>1490421115535</updated>
+      <workItem from="1490421116685" duration="5287000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3203000" />
+    <option name="totallyTimeSpent" value="5287000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1618" height="868" extended-state="6" />
@@ -222,8 +222,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="29" column="37" selection-start-line="0" selection-start-column="0" selection-end-line="112" selection-end-column="7" />
+        <state relative-caret-position="500">
+          <caret line="151" column="17" selection-start-line="151" selection-start-column="17" selection-end-line="151" selection-end-column="17" />
           <folding />
         </state>
       </provider>

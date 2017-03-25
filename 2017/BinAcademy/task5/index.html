@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task5</title>
+    <style>
+        .queue-btn {
+            background: white;
+            border: 1px solid lightgray;
+            box-shadow: 1px 1px 1px #c2c2c2;
+        }
+        .queue-number {
+            background: red;
+            color: white;
+            width: 10px;
+            text-align: center;
+            margin: 10px 1px;
+            display: inline-block;
+        }
+        #queue-show {
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <input type="text" id="queue-input">
+    <input type="button" value="左侧入" class="queue-btn" id="queue-btn-left-push">
+    <input type="button" value="右侧入" class="queue-btn" id="queue-btn-right-push">
+    <input type="button" value="左侧出" class="queue-btn" id="queue-btn-left-pop">
+    <input type="button" value="右侧出" class="queue-btn" id="queue-btn-right-pop">
+    <input type="button" value="排序" class="queue-btn" id="queue-btn-sort">
+</section>
+<section id="queue-show"></section>
+<script>
+
+    function insert(type)
+    {
+        var queueItemClass = "queue-number";
+        var numNode = document.getElementById("queue-input");
+        var num = numNode.value;
+        if (isNaN(num) === true)
+        {
+            alert("输入的不是数字!");
+            return;
+        }
+        if (num < 10 || num > 100)
+        {
+            alert("输入的数字不在10-100之内");
+            return;
+        }
+        var queueNode = document.getElementById("queue-show");
+        if (queueNode.childNodes.length >= 60)
+        {
+            alert("队列已满!");
+            return;
+        }
+
+        var queueItem = document.createElement("div");
+        queueItem.className = queueItemClass;
+        queueItem.style.height = num + "px";
+        if (type === 0)
+            queueNode.insertBefore(queueItem, queueNode.firstChild);
+        else
+            queueNode.appendChild(queueItem);
+    }
+
+    function remove(type)
+    {
+        var queueNode = document.getElementById("queue-show");
+        if (queueNode.childNodes.length === 0)
+        {
+            alert("队列中没有数字!");
+            return;
+        }
+        if (type === 0)
+            queueNode.removeChild(queueNode.firstChild);
+        else
+            queueNode.removeChild(queueNode.lastChild);
+    }
+
+    function insertLeft()
+    {
+        insert(0);
+    }
+
+    function insertRight()
+    {
+        insert(1);
+    }
+
+    function removeLeft()
+    {
+        remove(0);
+    }
+
+    function removeRight()
+    {
+        remove(1);
+    }
+
+    function getNumber(numStr)
+    {
+        var num = 0;
+        for (var j = 0; j < numStr.length; ++ j)
+        {
+            if (isNaN(numStr[j]) === true) break;
+            num *= 10;
+            num += Number(numStr[j]);
+        }
+        return num;
+    }
+
+    function sortQueue()
+    {
+        var queueNode = document.getElementById("queue-show");
+        var len = queueNode.childNodes.length;
+        var curTime = 0;
+        var stepTime = 2000;
+
+        function setColor(pos, color) {
+            return function() {
+                queueNode.childNodes[pos].style.backgroundColor = color;
+            };
+        };
+
+        function setHeight(pos, height) {
+            return function () {
+                queueNode.childNodes[pos].style.height = height + "px";
+            };
+        };
+        var data = [];
+        for (var i = 0; i < len; ++ i)
+        {
+            data.push(getNumber(queueNode.childNodes[i].style.height));
+        }
+        for (var i = 0; i < len; ++ i)
+        {
+            curTime += stepTime;
+            setTimeout(setColor(i, 'black'), curTime);
+            for (var j = i + 1; j < len; ++ j)
+            {
+                setTimeout(setColor(j, 'black'), curTime);
+                if (data[i] > data[j])
+                {
+                    curTime += stepTime;
+                    setTimeout(setHeight(i, data[j]), curTime);
+                    setTimeout(setHeight(j, data[i]), curTime);
+                    var tmp = data[i];
+                    data[i] = data[j];
+                    data[j] = tmp;
+                }
+                curTime += stepTime;
+                setTimeout(setColor(j, 'red'), curTime);
+            }
+            setTimeout(setColor(i, 'red'), curTime);
+        }
+    }
+
+    function init()
+    {
+        var btn;
+        btn = document.getElementById("queue-btn-left-push");
+        btn.onclick = insertLeft;
+        btn = document.getElementById("queue-btn-right-push");
+        btn.onclick = insertRight;
+        btn = document.getElementById("queue-btn-left-pop");
+        btn.onclick = removeLeft;
+        btn = document.getElementById("queue-btn-right-pop");
+        btn.onclick = removeRight;
+        btn = document.getElementById("queue-btn-sort");
+        btn.onclick = sortQueue;
+    }
+
+    init();
+</script>
+</body>
+</html>
