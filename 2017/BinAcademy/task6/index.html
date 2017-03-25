@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task6</title>
+    <style>
+        .queue-btn {
+            background: white;
+            border: 1px solid lightgray;
+            box-shadow: 1px 1px 1px #c2c2c2;
+        }
+        .queue-number {
+            background: red;
+            color: white;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            float: left;
+            margin: 10px;
+            padding: 10px;
+        }
+        .queue-search {
+            background: white;
+            border: 1px solid lightgray;
+            box-shadow: 1px 1px 1px #c2c2c2;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <textarea id="queue-input"></textarea>
+    <input type="button" value="左侧入" class="queue-btn" id="queue-btn-left-push">
+    <input type="button" value="右侧入" class="queue-btn" id="queue-btn-right-push">
+    <input type="button" value="左侧出" class="queue-btn" id="queue-btn-left-pop">
+    <input type="button" value="右侧出" class="queue-btn" id="queue-btn-right-pop">
+    <input type="text" id="queue-text-search">
+    <input type="button" value="查询" class="queue-btn" id="queue-btn-search">
+</section>
+<section id="queue-show">
+    <div class="queue-number">10</div>
+</section>
+<script>
+
+    function insertOne(type, content)
+    {
+        var queueItemClass = "queue-number";
+        var queueNode = document.getElementById("queue-show");
+        var queueItem = document.createElement("div");
+        queueItem.className = queueItemClass;
+        queueItem.innerText = content;
+        if (type === 0)
+            queueNode.insertBefore(queueItem, queueNode.firstChild);
+        else
+            queueNode.appendChild(queueItem);
+    }
+
+    function insert(type)
+    {
+        var numNode = document.getElementById("queue-input");
+        var contents = numNode.value;
+        var content = "";
+        var len = contents.length;
+        for (var i = 0; i <= len; ++ i)
+        {
+            if (i == len || contents[i] === ',')
+            {
+                insertOne(type, content);
+                content = "";
+            }
+            else
+            {
+                content += contents[i];
+            }
+        }
+    }
+
+    function remove(type)
+    {
+        var queueNode = document.getElementById("queue-show");
+        if (queueNode.childNodes.length === 0)
+        {
+            alert("队列已空!");
+            return;
+        }
+        if (type === 0)
+        {
+            alert(queueNode.firstChild.innerHTML);
+            queueNode.removeChild(queueNode.firstChild);
+        }
+        else
+        {
+            alert(queueNode.lastChild.innerHTML);
+            queueNode.removeChild(queueNode.lastChild);
+        }
+    }
+
+    function insertLeft()
+    {
+        insert(0);
+    }
+
+    function insertRight()
+    {
+        insert(1);
+    }
+
+    function removeLeft()
+    {
+        remove(0);
+    }
+
+    function removeRight()
+    {
+        remove(1);
+    }
+
+    function searchResult()
+    {
+        var queueItemClass = "queue-number";
+        var queueSearchItemClass = "queue-search";
+        var numNode = document.getElementById("queue-text-search");
+        var content = numNode.value;
+        var contentLen = content.length;
+        var queueNode = document.getElementById("queue-show");
+        queueNode = queueNode.getElementsByTagName("div");
+        var len = queueNode.length;
+        for (var i = 0; i < len; ++ i)
+        {
+            queueNode[i].className = queueItemClass;
+        }
+        for (var i = 0; i < len; ++ i)
+        {
+            console.log(queueNode[i]);
+            var target = queueNode[i].innerHTML;
+            console.log(target);
+            var targetLen = target.length;
+            var flag = false;
+            for (var j = 0; j + contentLen <= targetLen; ++ j)
+            {
+                var curFlag = true;
+                for (var k = 0; k < contentLen; ++ k)
+                {
+                    if (content[k] !== target[j + k])
+                    {
+                        curFlag = false;
+                        break;
+                    }
+                }
+                if (curFlag === true) flag = true;
+                if (flag === true) break;
+            }
+            if (flag === true)
+                queueNode[i].className += " " + queueSearchItemClass;
+        }
+    }
+
+    function init()
+    {
+        var btn;
+        btn = document.getElementById("queue-btn-left-push");
+        btn.onclick = insertLeft;
+        btn = document.getElementById("queue-btn-right-push");
+        btn.onclick = insertRight;
+        btn = document.getElementById("queue-btn-left-pop");
+        btn.onclick = removeLeft;
+        btn = document.getElementById("queue-btn-right-pop");
+        btn.onclick = removeRight;
+        btn = document.getElementById("queue-btn-search");
+        btn.onclick = searchResult;
+    }
+
+    init();
+</script>
+</body>
+</html>
