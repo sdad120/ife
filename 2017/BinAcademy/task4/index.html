@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task4</title>
+    <style>
+        .queue-btn {
+            background: white;
+            border: 1px solid lightgray;
+            box-shadow: 1px 1px 1px #c2c2c2;
+        }
+        .queue-number {
+            background: red;
+            color: white;
+            height: 30px;
+            line-height: 30px;
+            width: 30px;
+            text-align: center;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <input type="text" id="queue-input">
+        <input type="button" value="左侧入" class="queue-btn" id="queue-btn-left-push">
+        <input type="button" value="右侧入" class="queue-btn" id="queue-btn-right-push">
+        <input type="button" value="左侧出" class="queue-btn" id="queue-btn-left-pop">
+        <input type="button" value="右侧出" class="queue-btn" id="queue-btn-right-pop">
+    </section>
+    <section id="queue-show">
+        <div class="queue-number">10</div>
+    </section>
+    <script>
+
+        function insert(type)
+        {
+            var queueItemClass = "queue-number";
+            var numNode = document.getElementById("queue-input");
+            var num = numNode.value;
+            if (isNaN(num) === true)
+            {
+                alert("输入的不是数字!");
+                return;
+            }
+            var queueNode = document.getElementById("queue-show");
+            var queueItem = document.createElement("div");
+            queueItem.className = queueItemClass;
+            queueItem.innerText = num;
+            if (type === 0)
+                queueNode.insertBefore(queueItem, queueNode.firstChild);
+            else
+                queueNode.appendChild(queueItem);
+        }
+
+        function remove(type)
+        {
+            var queueNode = document.getElementById("queue-show");
+            if (queueNode.childNodes.length === 0)
+            {
+                alert("队列中没有数字!");
+                return;
+            }
+            if (type === 0)
+            {
+                alert(queueNode.firstChild.innerHTML);
+                queueNode.removeChild(queueNode.firstChild);
+            }
+            else
+            {
+                alert(queueNode.lastChild.innerHTML);
+                queueNode.removeChild(queueNode.lastChild);
+            }
+        }
+
+        function insertLeft()
+        {
+            insert(0);
+        }
+
+        function insertRight()
+        {
+            insert(1);
+        }
+
+        function removeLeft()
+        {
+            remove(0);
+        }
+
+        function removeRight()
+        {
+            remove(1);
+        }
+
+        function init()
+        {
+            var btn;
+            btn = document.getElementById("queue-btn-left-push");
+            btn.onclick = insertLeft;
+            btn = document.getElementById("queue-btn-right-push");
+            btn.onclick = insertRight;
+            btn = document.getElementById("queue-btn-left-pop");
+            btn.onclick = removeLeft;
+            btn = document.getElementById("queue-btn-right-pop");
+            btn.onclick = removeRight;
+        }
+
+        init();
+    </script>
+</body>
+</html>
