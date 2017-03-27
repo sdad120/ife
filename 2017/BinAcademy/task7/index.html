@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task7</title>
+    <style>
+        .node {
+            border: 1px solid black;
+            display: flex;
+            min-width: 30px;
+            min-height: 30px;
+            padding: 20px;
+            margin: 20px;
+            justify-content: space-around;
+            background: white;
+        }
+
+        input {
+            width: 200px;
+            height: 30px;
+            border: 1px solid lightgray;
+            box-shadow: 1px 1px 1px #aeaeae;
+        }
+
+        .button-section {
+            display: flex;
+            justify-content: space-around;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="node" id="root">
+        <div class="node">
+            <div class="node">
+                <div class="node"></div>
+                <div class="node"></div>
+            </div>
+            <div class="node">
+                <div class="node"></div>
+                <div class="node"></div>
+            </div>
+        </div>
+        <div class="node">
+            <div class="node">
+                <div class="node"></div>
+                <div class="node"></div>
+            </div>
+            <div class="node">
+                <div class="node"></div>
+                <div class="node"></div>
+            </div>
+        </div>
+    </div>
+    <div class="button-section">
+        <input type="button" value="前序遍历" id="traverse-preorder">
+        <input type="button" value="中序遍历" id="traverse-inorder">
+        <input type="button" value="后序遍历" id="traverse-postorder">
+    </div>
+    <script>
+
+        var interval = 1000;
+
+        function setColor(curNode, color)
+        {
+            return function()
+            {
+                curNode.style.backgroundColor = color;
+            }
+        }
+
+        function preorder(curNode, curTime)
+        {
+            curTime += interval;
+            setTimeout(setColor(curNode, "blue"), curTime);
+            setTimeout(setColor(curNode, "white"), curTime + interval);
+            var len = curNode.childNodes.length;
+            for (var i = 0; i < len; ++ i)
+            {
+                if (curNode.childNodes[i].nodeType === 3) continue;
+                curTime = preorder(curNode.childNodes[i], curTime);
+            }
+            return curTime;
+        }
+
+        function inorder(curNode, curTime)
+        {
+            var len = curNode.childNodes.length;
+            var i;
+            for (i = 0; i < len; ++ i)
+            {
+                if (curNode.childNodes[i].nodeType === 3) continue;
+                curTime = inorder(curNode.childNodes[i], curTime);
+                break;
+            }
+            curTime += interval;
+            setTimeout(setColor(curNode, "blue"), curTime);
+            setTimeout(setColor(curNode, "white"), curTime + interval);
+            for (++ i; i < len; ++ i)
+            {
+                if (curNode.childNodes[i].nodeType === 3) continue;
+                curTime = inorder(curNode.childNodes[i], curTime);
+            }
+            return curTime;
+        }
+
+        function postorder(curNode, curTime)
+        {
+            var len = curNode.childNodes.length;
+            for (var i = 0; i < len; ++ i)
+            {
+                if (curNode.childNodes[i].nodeType === 3) continue;
+                curTime = postorder(curNode.childNodes[i], curTime);
+            }
+            curTime += interval;
+            setTimeout(setColor(curNode, "blue"), curTime);
+            setTimeout(setColor(curNode, "white"), curTime + interval);
+            return curTime;
+        }
+
+        function preorder_search()
+        {
+            preorder(document.getElementById("root"), 0);
+        }
+
+        function inorder_search()
+        {
+            inorder(document.getElementById("root"), 0);
+        }
+
+        function postorder_search()
+        {
+            postorder(document.getElementById("root"), 0);
+        }
+
+        function init()
+        {
+            var curButton;
+            curButton = document.getElementById("traverse-preorder");
+            curButton.onclick = preorder_search;
+            curButton = document.getElementById("traverse-inorder");
+            curButton.onclick = inorder_search;
+            curButton = document.getElementById("traverse-postorder");
+            curButton.onclick = postorder_search;
+        }
+
+        init();
+
+    </script>
+</body>
+</html>
