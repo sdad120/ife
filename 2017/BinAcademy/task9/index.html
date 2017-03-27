@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task9</title>
+    <style>
+        .node {
+            border: 1px solid black;
+            display: flex;
+            min-width: 30px;
+            min-height: 30px;
+            padding: 10px;
+            margin: 10px;
+            justify-content: space-around;
+            background: white;
+        }
+
+        input {
+            width: 200px;
+            height: 30px;
+            border: 1px solid lightgray;
+            box-shadow: 1px 1px 1px #aeaeae;
+        }
+
+        .button-section {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="node" id="root">
+    <span>Super</span>
+    <div class="node">
+        <span>Cat</span>
+        <div class="node">
+            <span>Apple</span>
+            <div class="node"><span>Pear</span></div>
+            <div class="node"><span>Pig</span></div>
+            <div class="node"><span>Cola</span></div>
+            <div class="node"><span>Soccer</span></div>
+        </div>
+        <div class="node">
+            <span>Phone</span>
+            <div class="node"><span>Book</span></div>
+            <div class="node"><span>School</span></div>
+        </div>
+    </div>
+    <div class="node">
+        <span>Note</span>
+        <div class="node">
+            <span>Human</span>
+            <div class="node"><span>Code</span></div>
+            <div class="node"><span>Operate</span></div>
+            <div class="node"><span>Man</span></div>
+        </div>
+        <div class="node">
+            <span>Program</span>
+            <div class="node">
+                <span>Bed</span>
+                <div class="node"><span>Cat</span></div>
+            </div>
+            <div class="node"><span>Glass</span></div>
+        </div>
+    </div>
+    <div class="node"><span>Fish</span></div>
+</div>
+<div class="button-section">
+    <div>
+        <input type="text" id="search-text">
+        <input type="button" value="查询" id="search-btn">
+    </div>
+    <input type="button" value="遍历" id="traverse-btn">
+</div>
+<div class="button-section">
+    <div>
+        <input type="text" id="add-text">
+        <input type="button" value="添加" id="add-btn">
+    </div>
+    <input type="button" value="删除" id="del-btn">
+</div>
+
+<script>
+
+    var interval = 1000;
+    var curSelectedNode = null;
+
+    function setColor(curNode, color)
+    {
+        return function()
+        {
+            curNode.style.backgroundColor = color;
+        }
+    }
+
+    function dfs(curNode, curTime)
+    {
+        curTime += interval;
+        setTimeout(setColor(curNode, "blue"), curTime);
+        setTimeout(setColor(curNode, "white"), curTime + interval);
+        var len = curNode.childNodes.length;
+        for (var i = 0; i < len; ++ i)
+        {
+            if (!curNode.childNodes[i].className || curNode.childNodes[i].className !== "node") continue;
+            curTime = dfs(curNode.childNodes[i], curTime);
+        }
+        return curTime;
+    }
+
+    function traverse()
+    {
+        dfs(document.getElementById("root"), 0);
+    }
+
+    function reset(curNode)
+    {
+        setTimeout(setColor(curNode, "white"), 0);
+        var len = curNode.childNodes.length;
+        for (var i = 0; i < len; ++ i)
+        {
+            if (!curNode.childNodes[i].className || curNode.childNodes[i].className !== "node") continue;
+            reset(curNode.childNodes[i]);
+        }
+    }
+
+    function find(curNode, curTime, inputText)
+    {
+        curTime += interval;
+        setTimeout(setColor(curNode, "blue"), curTime);
+        setTimeout(setColor(curNode, "white"), curTime + interval);
+        var len = curNode.childNodes.length;
+        for (var i = 0; i < len; ++ i)
+        {
+            if (curNode.childNodes[i].nodeName === "SPAN")
+            {
+                var curText = curNode.childNodes[i].innerText;
+                if (curText === inputText)
+                {
+                    setTimeout(setColor(curNode, "yellow"), curTime + interval);
+                }
+            }
+        }
+        for (var i = 0; i < len; ++ i)
+        {
+            if (!curNode.childNodes[i].className || curNode.childNodes[i].className !== "node") continue;
+            curTime = find(curNode.childNodes[i], curTime, inputText);
+        }
+        return curTime;
+    }
+
+    function search()
+    {
+        var inputText = document.getElementById("search-text");
+        inputText = inputText.value;
+        reset(document.getElementById("root"));
+        find(document.getElementById("root"), 0, inputText);
+    }
+
+    function selectNode(e)
+    {
+        //学来的写法，不知哪种最兼容
+        var targetNode;
+        if (e.target) targetNode = e.target;
+        else if (e.srcElement) targetNode = e.srcElement;
+        if ((targetNode.className && targetNode.className === "node") || (targetNode.nodeName === "SPAN"))
+        {
+            if (targetNode.nodeName === "SPAN") targetNode = targetNode.parentNode;
+            if (curSelectedNode !== null)
+                setTimeout(setColor(curSelectedNode, "white"), 0);
+            curSelectedNode = targetNode;
+            setTimeout(setColor(curSelectedNode, "lightgray"), 0);
+        }
+        else if (targetNode.nodeName !== "INPUT")
+        {
+            if (curSelectedNode !== null)
+                setTimeout(setColor(curSelectedNode, "white"), 0);
+            curSelectedNode = null;
+        }
+    }
+
+    function addNode()
+    {
+        if (curSelectedNode === null)
+        {
+            alert("请选择一个节点");
+            return;
+        }
+        var curSpanNode = document.createElement("span");
+        var inputTextNode = document.getElementById("add-text");
+        curSpanNode.innerHTML = inputTextNode.value;
+        var curAddNode = document.createElement("div");
+        curAddNode.appendChild(curSpanNode);
+        curAddNode.className = "node";
+        curSelectedNode.appendChild(curAddNode);
+    }
+
+    function delNode()
+    {
+        if (curSelectedNode === null)
+        {
+            alert("请选择一个节点");
+            return;
+        }
+        curSelectedNode.parentNode.removeChild(curSelectedNode);
+        curSelectedNode = null;
+    }
+
+    function init()
+    {
+        var curButton;
+        curButton = document.getElementById("traverse-btn");
+        curButton.onclick = traverse;
+        curButton = document.getElementById("search-btn");
+        curButton.onclick = search;
+        curButton = document.getElementById("add-btn");
+        curButton.onclick = addNode;
+        curButton = document.getElementById("del-btn");
+        curButton.onclick = delNode;
+        document.body.onclick = selectNode;
+    }
+
+    init();
+
+</script>
+</body>
+</html>
