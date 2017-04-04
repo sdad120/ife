@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task2</title>
+    <style>
+        .input-block {
+            font-family: 微软雅黑;
+        }
+
+        .input-block_label {
+            vertical-align: top;
+            width: 80px;
+            height: 35px;
+            line-height: 35px;
+            font-weight: bold;
+            text-align: right;
+            display: inline-block;
+        }
+
+        .input-block_text {
+            display: inline-block;
+            margin-left: 50px;
+        }
+
+        .input-block_write {
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            height: 25px;
+            width: 300px;
+            padding: 5px 10px;
+            margin-bottom: 5px;
+        }
+
+        .input-block_description {
+            color: lightgray;
+            font-size: 14px;
+            display: none;
+        }
+
+        .submit-btn {
+            border: 1px solid #2e6da4;
+            background: #337ab7;
+            border-radius: 5px;
+            height: 35px;
+            text-align: center;
+            width: 60px;
+            font-size: 18px;
+            color: white;
+            margin-left: 135px;
+            font-family: 微软雅黑;
+        }
+
+    </style>
+</head>
+<body>
+<section>
+    <div class="input-block" id="js-input-block-name">
+        <label class="input-block_label">名称</label>
+        <div class="input-block_text">
+            <input class="input-block_write js-input-block_write" type="text">
+            <div class="input-block_description js-input-block_description">必填，长度为4-16个字符</div>
+        </div>
+    </div>
+    <div class="input-block" id="js-input-block-pwd">
+        <label class="input-block_label">密码</label>
+        <div class="input-block_text">
+            <input class="input-block_write js-input-block_write" type="password">
+            <div class="input-block_description js-input-block_description">必填</div>
+        </div>
+    </div>
+    <div class="input-block" id="js-input-block-pwdrep">
+        <label class="input-block_label">密码确认</label>
+        <div class="input-block_text">
+            <input class="input-block_write js-input-block_write" type="password">
+            <div class="input-block_description js-input-block_description">必填，需要与密码一致</div>
+        </div>
+    </div>
+    <div class="input-block" id="js-input-block-email">
+        <label class="input-block_label">邮箱</label>
+        <div class="input-block_text">
+            <input class="input-block_write js-input-block_write" type="text">
+            <div class="input-block_description js-input-block_description">必填，例如example@email.com</div>
+        </div>
+    </div>
+    <div class="input-block" id="js-input-block-phone">
+        <label class="input-block_label">手机</label>
+        <div class="input-block_text">
+            <input class="input-block_write js-input-block_write" type="text">
+            <div class="input-block_description js-input-block_description">必填，11位的手机号码</div>
+        </div>
+    </div>
+    <input type="button" class="submit-btn" id="js-submit-btn" value="提交">
+</section>
+
+<script>
+    (function(){
+        var nameId= "js-input-block-name";
+        var pwdId = "js-input-block-pwd";
+        var pwdrepId = "js-input-block-pwdrep";
+        var emailId = "js-input-block-email";
+        var phoneId = "js-input-block-phone";
+        var compsId = [nameId, pwdId, pwdrepId, emailId, phoneId];
+
+        var btnId = "js-submit-btn";
+
+        var writeClass = "js-input-block_write";
+        var descClass = "js-input-block_description";
+
+        var errorLenMessage = "不要乱改网页!";
+        var errorColor  = "red";
+        var rightColor = "greenyellow";
+
+        function getElInBlock(id, cls) {
+            var compEl = document.getElementById(id);
+            if (compEl === null)
+            {
+                alert("comp " + id + " is not exist!");
+                return null;
+            }
+            var el = compEl.getElementsByClassName(cls);
+            if (el.length !== 1)
+            {
+                alert(errorLenMessage);
+                return null;
+            }
+            return el[0];
+        }
+
+        function checkName(text) {
+            var zeroText = "姓名不能为空";
+            var lessText = "姓名个数过少";
+            var moreText = "姓名个数过多";
+            var rightText = "名称格式正确";
+
+            var len = text.length;
+            var cnt = 0;
+            for (var i = 0; i < len; ++ i)
+            {
+                if (text.charCodeAt(i) > 255)
+                    cnt += 2;
+                else
+                    cnt ++;
+            }
+            if (cnt === 0)
+                return [errorColor, zeroText];
+            else if (cnt >= 4 && cnt <= 16)
+                return [rightColor, rightText];
+            else if (cnt < 4)
+                return [errorColor, lessText];
+            else
+                return [errorColor, moreText];
+        }
+
+        function checkPwd(text) {
+            var len = text.length;
+            var zeroText = "密码不能为空";
+            var rightText = "密码格式正确";
+            if (len === 0)
+                return [errorColor, zeroText];
+            else
+                return [rightColor, rightText];
+        }
+
+        function checkPwdrep(text) {
+            var zeroText = "密码不能为空";
+            var errorText = "密码不一致"
+            var rightText = "密码一致";
+            var writeEl = getElInBlock(pwdId, writeClass);
+            if (writeEl === null)
+                return null;
+            if (writeEl.value !== text)
+                return [errorColor, errorText];
+            else if (text.length === 0)
+                return [errorColor, zeroText];
+            else if (writeEl.value === text)
+                return [rightColor, rightText];
+        }
+
+        function checkEmail(text) {
+            var zeroText = "邮箱不能为空";
+            var rightText = "邮箱格式正确";
+            var errorText = "邮箱格式不正确";
+            var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+            if (text.length === 0)
+                return [errorColor, zeroText];
+            else if (reg.test(text) === false)
+                return [errorColor, errorText];
+            else
+                return [rightColor, rightText];
+        }
+
+        function checkPhone(text) {
+            var zeroText = "手机不能为空";
+            var rightText = "手机格式正确";
+            var errorText = "手机格式不正确";
+            var phoneLen = 11;
+            var status = true;
+            var len = text.length;
+            for (var i = 0; i < len; ++ i)
+                if (text[i] < "0" || text[i] > "9")
+                    status = false;
+            if (text.length === 0)
+                return [errorColor, zeroText];
+            else if (status === false || len !== phoneLen)
+                return [errorColor, errorText];
+            else
+                return [rightColor, rightText];
+        }
+
+        var checkFunc = [checkName, checkPwd, checkPwdrep, checkEmail, checkPhone];
+
+        function draw(textEl, descEl, color, text) {
+            textEl.style.borderColor = color;
+            descEl.style.color = color;
+            descEl.innerHTML = text;
+        }
+
+        function showRule(compId) {
+            return function() {
+                var descEl = getElInBlock(compId, descClass);
+                if (descEl !== null)
+                    descEl.style.display = "block";
+            }
+        }
+
+        function execRule(compId, check) {
+            return function() {
+                var descEl = getElInBlock(compId,descClass);
+                var writeEl = getElInBlock(compId, writeClass);
+                if (writeEl === null || descEl === null)
+                    return;
+                var result = check(writeEl.value);
+                if (result === null || result.length !== 2)
+                    return;
+                draw(writeEl, descEl, result[0], result[1]);
+            }
+        }
+
+        function checkAll() {
+            var rightText = "提交成功";
+            var errorText = "提交失败";
+            var compNum = compsId.length;
+            var status = true;
+            for (var i = 0; i < compNum; ++ i) {
+                var descEl = getElInBlock(compsId[i], descClass);
+                if (descEl.style.color !== rightColor)
+                    status = false;
+            }
+            if (status === true)
+                alert(rightText);
+            else
+                alert(errorText);
+        }
+
+        function init() {
+            var compNum = compsId.length;
+            for (var i = 0; i < compNum; ++ i) {
+                var writeEl = getElInBlock(compsId[i], writeClass);
+                if (writeEl === null) continue;
+                writeEl.onfocus = showRule(compsId[i]);
+                writeEl.onblur = execRule(compsId[i], checkFunc[i]);
+            }
+            var btnEl = document.getElementById(btnId);
+            btnEl.onclick = checkAll;
+        }
+
+        init();
+    })();
+</script>
+</body>
+</html>

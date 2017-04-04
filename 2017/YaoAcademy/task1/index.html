@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task1</title>
+    <style>
+        .input-block {
+            font-family: 微软雅黑;
+        }
+
+        .input-block_label {
+            vertical-align: top;
+            height: 35px;
+            line-height: 35px;
+            font-weight: bold;
+        }
+
+        .input-block_text {
+            display: inline-block;
+            margin-left: 30px;
+        }
+
+        .input-block_write {
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            height: 25px;
+            width: 300px;
+            padding: 5px 10px;
+            margin-bottom: 5px;
+        }
+
+        .input-block_btn {
+            vertical-align: top;
+            border: 1px solid #2e6da4;
+            background: #337ab7;
+            border-radius: 5px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            width: 60px;
+            font-size: 18px;
+            color: white;
+        }
+
+        .input-block_description {
+            color: lightgray;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+        <div class="input-block">
+            <label class="input-block_label">名称</label>
+            <div class="input-block_text">
+                <input class="input-block_write js-input-block_write" type="text">
+                <div class="input-block_description js-input-block_description">必填，长度为4-16个字符</div>
+            </div>
+            <input class="input-block_btn js-input-block_btn" type="submit" value="验证">
+        </div>
+    </section>
+
+    <script>
+        (function(){
+            var btnClass = "js-input-block_btn";
+            var writeClass = "js-input-block_write";
+            var descClass = "js-input-block_description";
+
+            function draw(color, text) {
+                var textEl = document.getElementsByClassName(writeClass);
+                var descEl = document.getElementsByClassName(descClass);
+                if (descEl.length !== 1 || textEl.length !== 1) {
+                    alert("不要乱改网页!");
+                    return;
+                }
+                textEl[0].style.backgroundColor = color;
+                descEl[0].style.color = color;
+                descEl[0].innerHTML = text;
+            }
+
+            function check() {
+                var errorColor  = "red";
+                var rightColor = "greenyellow";
+                var zeroText = "姓名不能为空";
+                var lessText = "姓名个数过少";
+                var moreText = "姓名个数过多";
+                var rightText = "名称格式正确";
+
+                var textEl = document.getElementsByClassName(writeClass);
+                if (textEl.length !== 1) {
+                    alert("不要乱改网页!");
+                    return;
+                }
+                var text = textEl[0].value;
+                var len = text.length;
+                var cnt = 0;
+                for (var i = 0; i < len; ++ i)
+                {
+                    if (text.charCodeAt(i) > 255)
+                        cnt += 2;
+                    else
+                        cnt ++;
+                }
+                if (cnt === 0)
+                    draw(errorColor, zeroText);
+                else if (cnt >= 4 && cnt <= 16)
+                    draw(rightColor, rightText);
+                else if (cnt < 4)
+                    draw(errorColor, lessText);
+                else
+                    draw(errorColor, moreText);
+
+            }
+
+            function init() {
+                var btn = document.getElementsByClassName(btnClass);
+                if (btn.length === 0)
+                    alert("没有按钮!");
+                else if (btn.length > 1)
+                    alert("多于一个按钮!");
+                else {
+                    btn = btn[0];
+                    btn.onclick = check;
+                }
+            }
+
+            init();
+        })();
+    </script>
+</body>
+</html>
